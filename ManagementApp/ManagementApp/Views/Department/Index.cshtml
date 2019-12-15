@@ -1,0 +1,31 @@
+﻿@model List<ManagementApp.Models.EntityFramework.Department>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+
+@Html.ActionLink("New Department", "New", null, new { @class = "btn btn-primary" })
+<h2>Department List</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Department ID</th>
+            <th>Department Name</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var department in Model)
+        {
+        <tr>
+            <td>@department.Id</td>
+            <td>@department.DepartmentName</td>
+            <td>@Html.ActionLink("Update", "Update", new { id = department.Id }, new { @class = "btn btn-success" })</td>
+            <td>@Html.ActionLink("Delete", "Delete", new { id = department.Id }, new { @class = "btn btn-warning",onclick="return confirm'Are you sure to delete ?'" })</td>
+        </tr>
+        }
+    </tbody>
+</table>

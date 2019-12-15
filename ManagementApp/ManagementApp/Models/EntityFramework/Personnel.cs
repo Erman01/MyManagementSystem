@@ -19,7 +19,7 @@ namespace ManagementApp.Models.EntityFramework
 
         public short? Salary { get; set; }
 
-        [Display(Name = "Date od Birth")]
+        [Display(Name = "Date of Birth")]
         public DateTime? DateOfBirth { get; set; }
 
         public bool Gender { get; set; }
@@ -33,6 +33,7 @@ namespace ManagementApp.Models.EntityFramework
         [Display(Name = "Choose an Image")]
         public string ImagePath { get; set; }
 
+        [Display(Name ="Department Name")]
         [ForeignKey("Department")]
         public int DepartmentId { get; set; }
         public Department Department { get; set; }
