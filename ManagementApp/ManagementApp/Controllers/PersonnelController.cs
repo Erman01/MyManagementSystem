@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace ManagementApp.Controllers
 {
+    
     public class PersonnelController : Controller
     {
         ManagementContext Db = new ManagementContext();
@@ -30,6 +31,7 @@ namespace ManagementApp.Controllers
             };
             return View("PersonnelForm", model);
         }
+        [ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult Save(Personnel personnel)
         {

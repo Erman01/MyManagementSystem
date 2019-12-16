@@ -11,19 +11,25 @@
     <title>_Layout</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/site.css" rel="stylesheet" />
+    <link href="~/Content/image.css" rel="stylesheet" />
+    <link href="~/Content/DataTables/css/dataTables.bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
     @Html.Partial("_Navbar")
     <div class="container">
         @RenderBody()
     </div>
-    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+
     <script src="~/Scripts/jquery-3.0.0.slim.min.js"></script>
     <script src="~/Scripts/popper.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
-   
+    <script src="~/Scripts/custom.js"></script>
+    <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/DataTables/dataTables.bootstrap.min.js"></script>
 
-    @RenderSection("scripts",false)
+
+
+    @RenderSection("scripts", false)
 
 </body>
 </html>

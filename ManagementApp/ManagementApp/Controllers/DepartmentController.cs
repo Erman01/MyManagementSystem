@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace ManagementApp.Controllers
 {
+  
     public class DepartmentController : Controller
     {
         ManagementContext Db = new ManagementContext();
@@ -24,6 +25,7 @@ namespace ManagementApp.Controllers
             return View("DepartmentForm",new Department());
         }
 
+        [ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult Save(Department department)
         {

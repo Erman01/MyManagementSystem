@@ -10,6 +10,8 @@ namespace ManagementApp.Models.EntityFramework
     {
         public DbSet<Personnel> Personnels { get; set; }
         public DbSet<Department> Departments { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Image> Images { get; set; }
         public ManagementContext():base("ManagementConStr")
         {
             Database.SetInitializer(new DataInitilaizer());
@@ -18,6 +20,8 @@ namespace ManagementApp.Models.EntityFramework
         {
             modelBuilder.Configurations.Add(new PersonnelMap());
             modelBuilder.Configurations.Add(new DepartmentMap());
+            modelBuilder.Configurations.Add(new UserMap());
+            
         }
     }
 }
