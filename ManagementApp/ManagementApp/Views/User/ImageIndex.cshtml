@@ -4,15 +4,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>My Images</h2>
-@Html.ActionLink("Upload a Photo", "ImageUpload", "User",new { @class = "btn btn-primary" })
-<br />
-@Html.ActionLink("Back to Image List", "ImageIndex", "User")
-<br />
-<hr />
-
 <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0"> My Images</h1>
 
+<br />
+@Html.ActionLink("Back to Gallery", "ImageGalleryIndex", "User")
+<br />
+@Html.ActionLink("Upload a Photo", "ImageUpload", "User", new { @class = "btn btn-primary" })
+<hr />
 
 <div id="gallery">
     @foreach (var item in Model)
@@ -20,14 +18,12 @@
         <div class="item-container">
             <div class="gallery-item">
                 <a href="~/Content/UserImage/@item.ImagePath" target="_blank">
-                    <img src="~/Content/UserImage/@item.ImagePath" alt="">
-
+                    <img src="~/Content/UserImage/@item.ImagePath" alt="" />
                 </a>
                 <div class="description">
                     @item.ImageName
                 </div>
-                @Html.ActionLink("Back to My Gallery", "ImageGalleryIndex", new {id=item.Id })
-                @Html.ActionLink("Delete", "ImageDelete", new {id=item.Id },new { @class = "btn btn=danger", onclick = "return confirm('Are you sure to delete this Image?')" })
+                @Html.ActionLink("|", "ImageDelete", new { id = item.Id }, new { @class = "far fa-trash-alt", onclick = "return confirm('Are you sure to delete this Image?')" })
             </div>
         </div>
 

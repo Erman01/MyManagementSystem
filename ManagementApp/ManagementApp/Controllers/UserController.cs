@@ -100,6 +100,7 @@ namespace ManagementApp.Controllers
             return RedirectToAction("ImageGalleryIndex");
         }
         // GET: User/Create
+        [AllowAnonymous]
         public ActionResult Create()
         {
             return View();
@@ -110,6 +111,7 @@ namespace ManagementApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AllowAnonymous]
         public ActionResult Create([Bind(Include = "Id,Name,Password,Role")] User user)
         {
             if (ModelState.IsValid)
