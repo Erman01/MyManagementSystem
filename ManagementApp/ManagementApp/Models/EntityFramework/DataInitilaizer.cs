@@ -8,5 +8,6 @@ namespace ManagementApp.Models.EntityFramework
 {
     public class DataInitilaizer: DropCreateDatabaseIfModelChanges<ManagementContext>
     {
+
     }
 }

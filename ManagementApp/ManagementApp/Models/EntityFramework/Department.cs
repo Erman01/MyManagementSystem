@@ -6,6 +6,7 @@ using System.Web;
 
 namespace ManagementApp.Models.EntityFramework
 {
+
     public class Department
     {
         public Department()
@@ -15,6 +16,7 @@ namespace ManagementApp.Models.EntityFramework
         public int Id { get; set; }
 
         [Display(Name ="Department Name")]
+        [Required(ErrorMessage ="Department Name is required")]
         public string DepartmentName { get; set; }
         public List<Personnel> Personnels { get; set; }
     }

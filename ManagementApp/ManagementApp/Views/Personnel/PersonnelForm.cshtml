@@ -3,48 +3,60 @@
     ViewBag.Title = "PersonnelForm";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<br />
+@Html.ValidationSummary()
+<br />
 <h2>Personnel Form</h2>
 
-@using (Html.BeginForm("Save", "Personnel", FormMethod.Post,new {@class="form-group" }))
-{ 
+@using (Html.BeginForm("Save", "Personnel", FormMethod.Post, new { @class = "form-group" }))
+{
     <div class="form-group">
         @Html.LabelFor(x => x.Personnel.FirstName)
         @Html.TextBoxFor(x => x.Personnel.FirstName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Personnel.FirstName)
     </div>
     <div class="form-group">
         @Html.LabelFor(x => x.Personnel.LastName)
         @Html.TextBoxFor(x => x.Personnel.LastName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Personnel.LastName)
     </div>
     <div class="form-group">
         @Html.LabelFor(x => x.Personnel.DepartmentId)
-        @Html.DropDownListFor(x => x.Personnel.DepartmentId,new SelectList(Model.Departments,"Id","DepartmentName"),"Please select a department", new { @class = "form-control" })
+        @Html.DropDownListFor(x => x.Personnel.DepartmentId, new SelectList(Model.Departments, "Id", "DepartmentName"), "Please select a department", new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Personnel.DepartmentId)
     </div>
     <div class="form-group">
         @Html.LabelFor(x => x.Personnel.DateOfBirth)
-        @Html.TextBoxFor(x => x.Personnel.DateOfBirth,"{0:yyyy-MM-dd}", new { @class = "form-control" ,type="date"})
+        @Html.TextBoxFor(x => x.Personnel.DateOfBirth, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+        @Html.ValidationMessageFor(x => x.Personnel.DateOfBirth)
     </div>
     <div class="form-group">
         @Html.LabelFor(x => x.Personnel.Salary)
         @Html.TextBoxFor(x => x.Personnel.Salary, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Personnel.Salary)
     </div>
     <div class="radio">
         <h4>
             Please choose your gender
         </h4>
         <label>
-           @Html.RadioButtonFor(x=>x.Personnel.Gender,true) Male
+            @Html.RadioButtonFor(x => x.Personnel.Gender, true) Male
         </label>
         <label>
-            @Html.RadioButtonFor(x => x.Personnel.Gender,false) Female
+            @Html.RadioButtonFor(x => x.Personnel.Gender, false) Female
         </label>
+        @Html.ValidationMessageFor(x => x.Personnel.Gender)
     </div>
     <div class="checkbox">
         <label>
-            @Html.CheckBoxFor(x=>x.Personnel.MarritalStatus,true) Click the check box if you are married
+            @Html.CheckBoxFor(x => x.Personnel.MarritalStatus, true) Click the check box if you are married
         </label>
     </div>
-    @Html.HiddenFor(x=>x.Personnel.Id)
+    @Html.HiddenFor(x => x.Personnel.Id)
     <button type="submit" class="btn btn-primary">Save</button>
 }
 
+@section scripts{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+}

@@ -36,7 +36,7 @@
             <td>@(personnel.Gender==true?"Male":"Female")</td>
             <td>@(personnel.MarritalStatus==true?"Married":"Single")</td>
             <td>@Html.ActionLink("Update","Update",new {id=personnel.Id },new {@class="btn btn-success" })</td>
-            <td>@Html.ActionLink("Delete", "Delete", new { id = personnel.Id }, new { @class = "btn btn-warning",onclick="return confirm'Are you sure to delete ?'" })</td>
+            <td>@Html.ActionLink("Delete", "Delete", new { id = personnel.Id }, new { @class = "btn btn-danger",onclick = "return confirm('Are you sure to delete ?')" })</td>
         </tr>
         }
     </tbody>

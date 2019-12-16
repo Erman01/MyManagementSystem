@@ -24,7 +24,8 @@ namespace ManagementApp.Controllers
             var model = new PersonnelFormViewModel()
             {
 
-                Departments = Db.Departments.ToList()
+                Departments = Db.Departments.ToList(),
+                Personnel=new Personnel()
 
             };
             return View("PersonnelForm", model);
@@ -32,6 +33,15 @@ namespace ManagementApp.Controllers
         [HttpPost]
         public ActionResult Save(Personnel personnel)
         {
+            if (!ModelState.IsValid)
+            {
+                var model = new PersonnelFormViewModel()
+                {
+                    Departments = Db.Departments.ToList(),
+                    Personnel = personnel
+                };
+                return View("PersonnelForm",model);
+            }
             if (personnel.Id == 0)
             {
                 Db.Personnels.Add(personnel);

@@ -21,12 +21,16 @@ namespace ManagementApp.Controllers
         [HttpGet]
         public ActionResult New()
         {
-            return View("DepartmentForm");
+            return View("DepartmentForm",new Department());
         }
 
         [HttpPost]
         public ActionResult Save(Department department)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("DepartmentForm");
+            }
             if (department.Id==0)
             {
                 Db.Departments.Add(department);

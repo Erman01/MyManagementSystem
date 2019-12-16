@@ -24,7 +24,7 @@
             <td>@department.Id</td>
             <td>@department.DepartmentName</td>
             <td>@Html.ActionLink("Update", "Update", new { id = department.Id }, new { @class = "btn btn-success" })</td>
-            <td>@Html.ActionLink("Delete", "Delete", new { id = department.Id }, new { @class = "btn btn-warning",onclick="return confirm'Are you sure to delete ?'" })</td>
+            <td>@Html.ActionLink("Delete", "Delete", new { id = department.Id }, new { @class = "btn btn-danger",onclick="return confirm('Are you sure to delete ?')" })</td>
         </tr>
         }
     </tbody>
