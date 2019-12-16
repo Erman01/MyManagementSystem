@@ -1,0 +1,38 @@
+﻿@model List<ManagementApp.Models.EntityFramework.ImageGallery>
+@{
+    ViewBag.Title = "ImageGalleryIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>My Images</h2>
+@Html.ActionLink("Upload a Cover Photo", "GalleryImageUpload", "User", new { @class = "btn btn-primary" })
+<br />
+@Html.ActionLink("Back to Image List", "ImageGalleryIndex", "User")
+<br />
+<hr />
+
+<h1 class="font-weight-light text-center text-lg-left mt-4 mb-0"> My Images</h1>
+
+
+<div id="gallery">
+    @foreach (var item in Model)
+    {
+        <div class="item-container">
+            <div class="gallery-item">
+                <a href="~/Content/UserGallery/@item.GalleryImagePath" target="_blank">
+                    <img src="~/Content/UserGallery/@item.GalleryImagePath" alt="">
+
+                </a>
+                <div class="description">
+                    @item.GalleryImageName
+                </div>
+                @Html.ActionLink("Go to gallery","ImageIndex",new {id=item.Id })
+                @Html.ActionLink("Delete", "GalleryDelete", new {id=item.Id },new { @class = "btn btn=danger", onclick = "return confirm('Are you sure to delete this Image?')" })
+            </div>
+        </div>
+
+    }
+
+
+</div>
+

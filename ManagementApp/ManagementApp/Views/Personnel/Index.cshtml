@@ -5,12 +5,13 @@
 }
 <br />
 
-@Html.ActionLink("New Personnel", "New", null, new {@class="btn btn-primary" })
+@Html.ActionLink("New Personnel", "New", null, new { @class = "btn btn-primary" })
 <h2>Personnel List</h2>
 
 <table class="table table-bordered" id="tblDepartments">
     <thead>
         <tr>
+            
             <th>First Name</th>
             <th>Last Name</th>
             <th>Department Name</th>
@@ -26,18 +27,19 @@
     <tbody>
         @foreach (var personnel in Model)
         {
-        <tr>
-            <td>@personnel.FirstName</td>
-            <td>@personnel.LastName</td>
-            <td>@personnel.Department.DepartmentName</td>
-            <td>@personnel.DateOfBirth.Value.ToString("dd-MM-yyyy")</td>
-            <td>@(DateTime.Now.Year-personnel.DateOfBirth.Value.Year)</td>
-            <td>@personnel.Salary</td>
-            <td>@(personnel.Gender==true?"Male":"Female")</td>
-            <td>@(personnel.MarritalStatus==true?"Married":"Single")</td>
-            <td>@Html.ActionLink("Update","Update",new {id=personnel.Id },new {@class="btn btn-success" })</td>
-            <td>@Html.ActionLink("Delete", "Delete", new { id = personnel.Id }, new { @class = "btn btn-danger",onclick = "return confirm('Are you sure to delete ?')" })</td>
-        </tr>
+            <tr>
+                
+                <td>@personnel.FirstName</td>
+                <td>@personnel.LastName</td>
+                <td>@personnel.Department.DepartmentName</td>
+                <td>@personnel.DateOfBirth.Value.ToString("dd-MM-yyyy")</td>
+                <td>@(DateTime.Now.Year - personnel.DateOfBirth.Value.Year)</td>
+                <td>@personnel.Salary</td>
+                <td>@(personnel.Gender == true ? "Male" : "Female")</td>
+                <td>@(personnel.MarritalStatus == true ? "Married" : "Single")</td>
+                <td>@Html.ActionLink("Update", "Update", new { id = personnel.Id }, new { @class = "btn btn-success" })</td>
+                <td>@Html.ActionLink("Delete", "Delete", new { id = personnel.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Are you sure to delete ?')" })</td>
+            </tr>
         }
     </tbody>
 </table>

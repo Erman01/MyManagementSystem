@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -19,7 +20,14 @@ namespace ManagementApp.Controllers
         {
             return View(db.Users.ToList());
         }
-
+        public ActionResult ImageIndex()
+        {
+            return View(db.Images.ToList());
+        }
+        public ActionResult ImageGalleryIndex()
+        {
+            return View(db.ImageGalleries.ToList());
+        }
         // GET: User/Details/5
         public ActionResult Details(int? id)
         {
@@ -34,7 +42,63 @@ namespace ManagementApp.Controllers
             }
             return View(user);
         }
+        public ActionResult ImageUpload()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ImageUpload(Image userImage,HttpPostedFileBase ImageUrl)
+        {
+            Image img = new Image();
+            img.ImageName = userImage.ImageName;
+           
+            img.ImagePath = ImageUrl.FileName.ToString();
 
+            var path = Server.MapPath("~/Content/UserImage");
+            ImageUrl.SaveAs(Path.Combine(path, ImageUrl.FileName.ToString()));
+            db.Images.Add(img);
+            db.SaveChanges();
+            return RedirectToAction("ImageIndex");
+        }
+        public ActionResult ImageDelete(int id)
+        {
+            var model = db.Images.Find(id);
+            if (model==null)
+            {
+                return HttpNotFound();
+            }
+            db.Images.Remove(model);
+            db.SaveChanges();
+            return RedirectToAction("ImageIndex");
+        }
+        public ActionResult GalleryImageUpload()
+        {
+            return View();
+        }
+       [HttpPost]
+        public ActionResult GalleryImageUpload(ImageGallery userGalleryImage, HttpPostedFileBase GalleryImagePath)
+        {
+            ImageGallery imgGallery = new ImageGallery();
+            imgGallery.GalleryImageName = userGalleryImage.GalleryImageName;
+            imgGallery.GalleryImagePath = GalleryImagePath.FileName.ToString();
+
+            var path = Server.MapPath("~/Content/UserGallery");
+            GalleryImagePath.SaveAs(Path.Combine(path, GalleryImagePath.FileName.ToString()));
+            db.ImageGalleries.Add(imgGallery);
+            db.SaveChanges();
+            return RedirectToAction("ImageGalleryIndex");
+        }
+        public ActionResult GalleryDelete(int id)
+        {
+            var model = db.ImageGalleries.Find(id);
+            if (model == null)
+            {
+                return HttpNotFound();
+            }
+            db.ImageGalleries.Remove(model);
+            db.SaveChanges();
+            return RedirectToAction("ImageGalleryIndex");
+        }
         // GET: User/Create
         public ActionResult Create()
         {

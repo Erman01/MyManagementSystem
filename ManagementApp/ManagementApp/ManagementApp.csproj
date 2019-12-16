@@ -412,7 +412,6 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
-    <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\PersonnelController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
@@ -423,12 +422,14 @@
     <Compile Include="Models\EntityFramework\Department.cs" />
     <Compile Include="Models\EntityFramework\DepartmentMap.cs" />
     <Compile Include="Models\EntityFramework\Image.cs" />
+    <Compile Include="Models\EntityFramework\ImageGallery.cs" />
     <Compile Include="Models\EntityFramework\ManagementContext.cs" />
     <Compile Include="Models\EntityFramework\Personnel.cs" />
     <Compile Include="Models\EntityFramework\PersonnelMap.cs" />
     <Compile Include="Models\EntityFramework\User.cs" />
     <Compile Include="Models\EntityFramework\UserMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ImageformViewModel.cs" />
     <Compile Include="ViewModels\PersonnelFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -445,6 +446,10 @@
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Image\Upload.cshtml" />
     <Content Include="Views\Image\Index.cshtml" />
+    <Content Include="Views\User\ImageUpload.cshtml" />
+    <Content Include="Views\User\ImageIndex.cshtml" />
+    <Content Include="Views\User\ImageGalleryIndex.cshtml" />
+    <Content Include="Views\User\GalleryImageUpload.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -454,9 +459,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\UserGallery\" />
     <Folder Include="Content\UserImage\" />
+    <Folder Include="Content\UserProfile\" />
     <Folder Include="Models\Validator\" />
-    <Folder Include="Views\Navbar\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
