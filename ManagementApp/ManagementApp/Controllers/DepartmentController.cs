@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace ManagementApp.Controllers
 {
-  
+    [Authorize(Roles = "A,B")] //Only role A and B can see here and Manipulate it
     public class DepartmentController : Controller
     {
         ManagementContext Db = new ManagementContext();

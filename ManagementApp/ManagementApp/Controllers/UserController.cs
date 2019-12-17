@@ -11,6 +11,7 @@ using ManagementApp.Models.EntityFramework;
 
 namespace ManagementApp.Controllers
 {
+    [Authorize(Roles = "A")]//Only role A can see here and manipulate it
     public class UserController : Controller
     {
         private ManagementContext db = new ManagementContext();

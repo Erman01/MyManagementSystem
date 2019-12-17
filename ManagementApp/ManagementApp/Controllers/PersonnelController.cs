@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace ManagementApp.Controllers
 {
-    
+    [Authorize(Roles = "A,B")] //Only role A and B can see here and Manipulate it
     public class PersonnelController : Controller
     {
         ManagementContext Db = new ManagementContext();
@@ -19,6 +19,7 @@ namespace ManagementApp.Controllers
             var model = Db.Personnels.Include(x => x.Department).ToList();
             return View(model);
         }
+        [Authorize(Roles ="A")]
         [HttpGet]
         public ActionResult New()
         {

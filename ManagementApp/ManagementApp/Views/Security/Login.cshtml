@@ -2,9 +2,7 @@
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -16,19 +14,20 @@
 <body>
     <br /><br /><br />
                 <div class="container">
-                    <h4>Please Login</h4>
-                    @ViewBag.Message
+                    
+                    
                     @using (Html.BeginForm("Login", "Security", FormMethod.Post))
                     {
 
                         <div class="d-flex justify-content-center h-100">
                             <div class="card">
                                 <div class="card-header">
-                                    <h3>Sign In</h3>
+                                    <h3>Sign in</h3>
+                                    <p style="color:gold; font-size:22px; font-weight:bold;" >@ViewBag.Message</p> 
                                     <div class="d-flex justify-content-end social_icon">
                                         <a href="http://www.facebook.com" target="_blank"><span><i class="fab fa-facebook-square"></i></span></a>
                                         @*<span><i class="fab fa-google-plus-square"></i></span>*@
-                                    <a href="http://www.twitter.com" target="_blank"><span><i class="fab fa-twitter-square"></i></span></a>
+                                        <a href="http://www.twitter.com" target="_blank"><span><i class="fab fa-twitter-square"></i></span></a>
                                     </div>
                                 </div>
                                 <div class="card-body">
@@ -37,9 +36,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                                             </div>
-
                                             @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Username" })
-
                                         </div>
                                         <div class="input-group form-group">
                                             <div class="input-group-prepend">

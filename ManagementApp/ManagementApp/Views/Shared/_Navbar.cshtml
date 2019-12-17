@@ -15,6 +15,13 @@
             <li class="nav-item">
                 <a class="nav-link" href="/Personnel">Personnels</a>
             </li>
+            @if (User.IsInRole("A")) @*Only role A can see this section*@
+            {
+                <li class="nav-item">
+                    <a class="nav-link" href="/User">User</a>
+                </li>
+            }
+
             <li class="nav-item">
                 <a class="nav-link" href="/User/ImageGalleryIndex">My Image Gallery</a>
             </li>

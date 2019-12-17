@@ -20,19 +20,27 @@ namespace ManagementApp.Controllers
         [HttpPost]
         public ActionResult Login(User user)
         {
+            User usr = new User();
             var userInDb = db.Users.FirstOrDefault(x => x.Name == user.Name && x.Password == user.Password);
             if (userInDb!=null)
             {
-                FormsAuthentication.SetAuthCookie(userInDb.Name,false);
-                return RedirectToAction("Index","Department");
+                FormsAuthentication.SetAuthCookie(user.Name, false);
+                return RedirectToAction("Index", "Department");
+
             }
             else
             {
                
-                ViewBag.Message = "Username or Password is incorrect";
-                return View();
+                if (usr.Password != user.Password)
+                {
+                    ViewBag.Message = "Password is incorrect please type your password correctly";
+                    return View();
+
+                }
+
             }
-            
+            return View();
+
         }
         public ActionResult Logout()
         {
