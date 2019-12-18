@@ -25,7 +25,7 @@ namespace ManagementApp.Controllers
             if (userInDb!=null)
             {
                 FormsAuthentication.SetAuthCookie(user.Name, false);
-                return RedirectToAction("Index", "Department");
+                return RedirectToAction("Index", "MyCV");
 
             }
             else
