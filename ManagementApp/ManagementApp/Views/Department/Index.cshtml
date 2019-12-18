@@ -15,6 +15,7 @@
             <th>Department Name</th>
             <th>Update</th>
             <th>Delete</th>
+            <th>List of Personnels</th>
         </tr>
     </thead>
     <tbody>
@@ -25,7 +26,9 @@
             <td>@department.DepartmentName</td>
             <td>@Html.ActionLink("Update", "Update", new { id = department.Id }, new { @class = "btn btn-success" })</td>
             <td>@Html.ActionLink("Delete", "Delete", new { id = department.Id }, new { @class = "btn btn-danger",onclick="return confirm('Are you sure to delete ?')" })</td>
+            <td>@Ajax.ActionLink("Show Persoonels", "ListOfPersonnel", "Personnel", new { id = department.Id }, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "PersonnelList" }, new { @class="btn btn-primary" })</td>
         </tr>
         }
     </tbody>
 </table>
+<div id="PersonnelList"></div>

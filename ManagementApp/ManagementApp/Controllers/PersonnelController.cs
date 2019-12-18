@@ -81,5 +81,10 @@ namespace ManagementApp.Controllers
             Db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult ListOfPersonnel(int id)
+        {
+            var model = Db.Personnels.Where(x => x.DepartmentId == id).ToList();
+            return PartialView(model);
+        }
     }
 }

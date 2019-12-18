@@ -389,6 +389,8 @@
     <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.easing.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -461,6 +463,7 @@
     <Content Include="Views\User\GalleryImageUpload.cshtml" />
     <Content Include="Views\Security\Login.cshtml" />
     <Content Include="Views\MyCV\Index.cshtml" />
+    <Content Include="Views\Personnel\ListOfPersonnel.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
