@@ -36,6 +36,7 @@ namespace ManagementApp.Controllers
         [HttpPost]
         public ActionResult Save(Personnel personnel)
         {
+            
             if (!ModelState.IsValid)
             {
                 var model = new PersonnelFormViewModel()
@@ -45,16 +46,25 @@ namespace ManagementApp.Controllers
                 };
                 return View("PersonnelForm",model);
             }
+
+            MessageViewModel msg = new MessageViewModel();
+
             if (personnel.Id == 0)
             {
                 Db.Personnels.Add(personnel);
+                msg.Message = personnel.FirstName + personnel.LastName + " Added successfully";
+
             }
             else
             {
                 Db.Entry(personnel).State = EntityState.Modified;
+                msg.Message = personnel.FirstName + personnel.LastName + " Updated successfully";
             }
             Db.SaveChanges();
-            return RedirectToAction("Index");
+            msg.Status = true;
+            msg.LinkText = "Back to Personnel List";
+            msg.Url = "/Personnel";
+            return View("_Message",msg);
         }
         public ActionResult Update(int id)
         {
@@ -85,6 +95,10 @@ namespace ManagementApp.Controllers
         {
             var model = Db.Personnels.Where(x => x.DepartmentId == id).ToList();
             return PartialView(model);
+        }
+        public int TotalSalaryExpenses()
+        {
+            return Convert.ToInt32(Db.Personnels.Sum(x => x.Salary));
         }
     }
 }
