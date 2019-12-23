@@ -1,25 +1,51 @@
 ﻿@model List<ManagementApp.Models.EntityFramework.Personnel>
-
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Date of Birth</th>
-            <th>Gender</th>
-            <th>Salary</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var personnel in Model)
-        {
-        <tr>
-            <td>@personnel.FirstName</td>
-            <td>@personnel.LastName</td>
-            <td>@(DateTime.Now.Year- personnel.DateOfBirth.Value.Year)</td>
-            <td>@(personnel.Gender==true?"Male":"Female")</td>
-            <td>@personnel.Salary</td>
-        </tr>
+<!Doctype html>
+<html>
+<head>
+    <title>List of personnel</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        tr th{
+            background-color:blue;
+            color:white;
         }
-    </tbody>
-</table>
+        tr:nth-child(odd){
+            background-color:#e6e6ff;
+        }
+        tr:hover{
+            background-color:#8080ff;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <br />
+    <div class="container">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Date of Birth</th>
+                    <th>Gender</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var personnel in Model)
+                {
+                    <tr>
+                        <td>@personnel.FirstName</td>
+                        <td>@personnel.LastName</td>
+                        <td>@(DateTime.Now.Year - personnel.DateOfBirth.Value.Year)</td>
+                        <td>@(personnel.Gender == true ? "Male" : "Female")</td>
+                        <td>@personnel.Salary</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</body>
+</html>
+

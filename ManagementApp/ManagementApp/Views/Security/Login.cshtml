@@ -8,20 +8,16 @@
     <meta name="viewport" content="width=device-width" />
     <title>Login</title>
 
-
-
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
- 
-  
+
+
 </head>
 <body>
-    <br /><br /><br />
+   
 
     <div class="container-fluid">
         @using (Html.BeginForm("Login", "Security", FormMethod.Post))
         {
-
-
 
             <div class="row no-gutter">
                 <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
@@ -45,7 +41,6 @@
 
                                         </div>
 
-
                                         <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Login</button>
                                         <div class="form-label-group">
                                             @Html.ActionLink("If you are not member please Sign Up", "Create", "User")
@@ -63,8 +58,7 @@
         }
     </div>
 
-
-    <script src="~/Scripts/jquery-3.0.0.slim.min.js"></script>
+    <script src="~/Scripts/jquery-3.0.0.slim.js"></script>
     <script src="~/Scripts/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/3236eba992.js" crossorigin="anonymous"></script>
 </body>
