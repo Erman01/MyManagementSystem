@@ -119,7 +119,7 @@ namespace ManagementApp.Controllers
             {
                 db.Users.Add(user);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "MyCV");
             }
 
             return View(user);
