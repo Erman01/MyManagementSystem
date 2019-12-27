@@ -4,7 +4,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <br />
-
 @Html.ActionLink("New Department", "New", null, new { @class = "btn btn-primary" })
 <h2>Department List</h2>
 
@@ -26,7 +25,7 @@
             <td>@department.DepartmentName</td>
             <td>@Html.ActionLink("Update", "Update", new { id = department.Id }, new { @class = "btn btn-success" })</td>
             <td>@Html.ActionLink("Delete", "Delete", new { id = department.Id }, new { @class = "btn btn-danger",onclick="return confirm('Are you sure to delete ?')" })</td>
-            <td>@Ajax.ActionLink("Show Persoonels", "ListOfPersonnel", "Personnel", new { id = department.Id }, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "PersonnelList" }, new { @class="btn btn-primary" })</td>
+            <td>@Ajax.ActionLink("Show Personnel", "ListOfPersonnel", "Personnel", new { id = department.Id }, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "PersonnelList" }, new { @class="btn btn-primary" })</td>
         </tr>
         }
     </tbody>

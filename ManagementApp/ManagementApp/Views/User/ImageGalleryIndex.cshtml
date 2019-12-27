@@ -22,7 +22,7 @@
                 </div>
                 @Html.ActionLink(" Go to Gallery", "ImageIndex", "User")
            <br />
-                @Html.ActionLink(" |", "GalleryDelete", new { id = item.Id }, new { @class = "far fa-trash-alt", onclick = "return confirm('Are you sure to delete this Image?')" })
+                @Html.ActionLink("|", "GalleryDelete", new { id = item.Id }, new { @class = "far fa-trash-alt", onclick = "return confirm('Are you sure to delete this Image?')" })
             </div>
         </div>
 
