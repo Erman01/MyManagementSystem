@@ -13,12 +13,11 @@
 
 </head>
 <body>
-   
-
+ 
     <div class="container-fluid">
+
         @using (Html.BeginForm("Login", "Security", FormMethod.Post))
         {
-
             <div class="row no-gutter">
                 <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
                 <div class="col-md-8 col-lg-6">
@@ -40,22 +39,26 @@
                                             @Html.PasswordFor(x => x.Password, new { @class = "form-control", placeholder = "Password" })
 
                                         </div>
-
+                                        <br />
                                         <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Login</button>
                                         <div class="form-label-group">
-                                            @Html.ActionLink("If you are not member please Sign Up", "Create", "User")
-                                        </div>
 
+                                        </div>
+                                        <div class="form-actions no-color">
+                                            @Html.ActionLink("Please Sign Up", "Create", "User")
+                                        </div>
                                     </form>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
+
             </div>
 
-
         }
+
     </div>
 
     <script src="~/Scripts/jquery-3.0.0.slim.js"></script>

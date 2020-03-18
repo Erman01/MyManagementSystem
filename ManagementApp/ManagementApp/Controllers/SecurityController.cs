@@ -33,19 +33,19 @@ namespace ManagementApp.Controllers
                
                 if (usr.Password != user.Password)
                 {
-                    ViewBag.Message = "Password is incorrect please type your password correctly";
+                    ViewBag.Message = "Password is incorrect";
                     return View();
 
                 }
 
             }
             return View();
-
         }
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Login");
         }
+
     }
 }
